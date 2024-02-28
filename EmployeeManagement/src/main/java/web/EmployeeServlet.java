@@ -87,8 +87,9 @@ public class EmployeeServlet extends HttpServlet {
 			throws SQLException, IOException {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		String country = request.getParameter("country");
-		Employee newUser = new Employee(name, email, country);
+		String phone = request.getParameter("phone");
+		String birthday = request.getParameter("birthday");
+		Employee newUser = new Employee(name, email, phone, birthday);
 		employeeDAO.insertEmployee(newUser);
 		response.sendRedirect("list");
 	}
@@ -98,9 +99,10 @@ public class EmployeeServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		String country = request.getParameter("country");
+		String phone = request.getParameter("phone");
+		String birthday = request.getParameter("birthday");
 
-		Employee book = new Employee(id, name, email, country);
+		Employee book = new Employee(id, name, email, phone, birthday);
 		employeeDAO.updateEmployee(book);
 		response.sendRedirect("list");
 	}
